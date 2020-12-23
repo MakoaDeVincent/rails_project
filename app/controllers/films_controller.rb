@@ -1,6 +1,7 @@
 class FilmsController < ApplicationController
 
     def index
+        @film = Film.all
     end
 
     def new
