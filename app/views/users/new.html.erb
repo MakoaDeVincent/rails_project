@@ -1,0 +1,31 @@
+<h1>Sign Up to start cataloging and rating your film!</h1>
+
+<% if @user.errors.any? %>
+    <h2>
+        <%= pluralize(@user.errors.count, 'error') %>
+        occured:
+    </h2>
+
+    <ul>
+        <% @user.errors.full_messages.each do |message| %>
+           <ul> <%= message %> </ul>
+        <% end %>
+<% end%>
+<br>
+
+<%= form_for(@user) do |f| %>
+
+    <%= f.label :username %>
+    <%= f.text_field :username %><br>
+
+    <%= f.label :email %>
+    <%= f.email_field :email %><br>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %><br>
+
+    <%= f.submit "Sign Up!" %>
+
+<% end %>
+
+    
