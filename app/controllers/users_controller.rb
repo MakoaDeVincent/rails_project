@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    before_action :if_logged_in_direct_home
+
 
     def new
         @user = User.new

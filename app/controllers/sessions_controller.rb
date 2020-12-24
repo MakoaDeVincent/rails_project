@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    #before_action :if_logged_in_direct_home
 
     def new
     end

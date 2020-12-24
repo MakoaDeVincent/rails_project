@@ -1,6 +1,15 @@
-<%= link_to "Back to Cabinet", films_path %>
+<%= link_to "Back to Cabinet", films_path %><br>
 
-<%= @film.name %>
-<%= @film.iso %>
-<%= @film.rating.score %>
+<h1><%= @film.name %></h1>
+<h2>ISO:<%= @film.iso %></h2>
+<h2><% if @film.expired == true %>
+        Expired?: Yes
+    <% else %>
+        Expired?: No
+    <% end %>
+<h2><%= @film.rating.score %> out of 5 stars</h2>
 
+<% if @film.user == current_user %>
+    <%= link_to "Edit Film", edit_film_path(@film) %>
+    <%= link_to "Delete Film", film_path, method: :delete %>
+<% end %>
