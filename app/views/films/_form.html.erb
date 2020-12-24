@@ -1,0 +1,21 @@
+<%= form_for(@film) do |f| %>
+
+    <%= render partial: 'layouts/errors', locals: {object: @film} %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :iso %>
+    <%= f.select(:iso, ["100", "160", "200", "400", "800", "1600", "3200"]) %><br>
+
+    <%= f.label :expired, "Expired?" %>
+    <%= f.check_box :expired %><br>
+
+    <p>Select a Rating</p>
+    <f.label :rating_id, "Select a rating" %>
+    <%= f.collection_select :rating_id, Rating.all, :id, :score, prompt: true %><br><br>
+
+    <%= f.submit %>
+
+<% end %>
+

@@ -1,17 +1,8 @@
 <h1>Sign Up to start cataloging and rating your film!</h1>
 
-<% if @user.errors.any? %>
-    <h2>
-        <%= pluralize(@user.errors.count, 'error') %>
-        occured:
-    </h2>
-
-    <ul>
-        <% @user.errors.full_messages.each do |message| %>
-           <ul> <%= message %> </ul>
-        <% end %>
-<% end%>
 <br>
+
+<%= render partial: 'layouts/errors', locals: {object: @user} %>
 
 <%= form_for(@user) do |f| %>
 

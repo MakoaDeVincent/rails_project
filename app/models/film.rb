@@ -8,5 +8,9 @@ class Film < ApplicationRecord
 
     validates :name, :iso, presence: true
     
+    def rating_attributes=(attributes)
+        rating = Rating.find_or_create_by(attributes)
+        self.rating = rating if rating.valid? || !self.rating
+    end
     
 end

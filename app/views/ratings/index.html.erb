@@ -1,0 +1,8 @@
+Sort by rating:
+
+    <% @ratings.each do |rating| %>
+        <ul>
+            <%= link_to rating.score, rating_films_path(rating) %>
+        </ul
+    <% end %>
+

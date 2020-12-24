@@ -1,5 +1,24 @@
-Test
+<h1><%= current_user.username %>'s Film Locker:</h1>
 
-<% @film.each do |film| %>
-    <%= film.name %>
+<h3>To sort film by rating through all users:
+<%= link_to "Click here", ratings_path %></h3>
+
+<% @films.each do |film| %>
+    <% if film.user_id != current_user.id %>
+        <ul>
+        <%= link_to film.name, film_path(film) %> ISO: <%= film.iso %> -- Rating: <%= film.rating.score %>/5
+            <ul>
+            Reviewed by: <%= film.user.username %>
+            </ul>
+        </ul>
+    <% end %>
 <% end %>
+
+<h2>Your Films:</h2>
+<%= render 'films' %>
+
+
+<br>
+<button><%= link_to "Add a Film", new_film_path %></button>
+<br>
+

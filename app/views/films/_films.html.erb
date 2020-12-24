@@ -1,0 +1,7 @@
+<% @films.each do |film| %>
+    <% if film.user_id == current_user.id %>
+        <ul>
+        <%= link_to film.name, film_path(film) %> ISO: <%= film.iso %> -- Rating: <%= film.rating.score %>/5
+        </ul>
+    <% end %>
+<% end %>
