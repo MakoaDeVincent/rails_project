@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             session[:user] = @user
-            redirect_to films_path(@user)
+            redirect_to films_path#(@user)
         else
             render 'new'
         end

@@ -1,8 +1,6 @@
-Sort by rating:
+<h1>Sort by rating:</h1><br>
 
     <% @ratings.each do |rating| %>
-        <ul>
-            <%= link_to rating.score, rating_films_path(rating) %>
-        </ul
+            <ul><%= link_to rating.score, rating_films_path(rating) %> out of 5 stars</ul>
     <% end %>
 

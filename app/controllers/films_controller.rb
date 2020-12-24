@@ -6,7 +6,6 @@ class FilmsController < ApplicationController
             @film = rating.films.build
         else
             @film = Film.new
-            @film.build_rating
         end
     end
 
@@ -15,7 +14,6 @@ class FilmsController < ApplicationController
         if @film.save
             redirect_to film_path(@film)
         else
-            @film.build_rating unless @film.rating
             render :new
         end
     end

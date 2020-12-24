@@ -11,8 +11,7 @@
     <%= f.label :expired, "Expired?" %>
     <%= f.check_box :expired %><br>
 
-    <p>Select a Rating</p>
-    <f.label :rating_id, "Select a rating" %>
+    <%= f.label :rating_id, "Select a rating" %>
     <%= f.collection_select :rating_id, Rating.all, :id, :score, prompt: true %><br><br>
 
     <%= f.submit %>
